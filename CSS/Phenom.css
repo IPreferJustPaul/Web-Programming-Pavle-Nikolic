@@ -1,0 +1,11 @@
+body{
+    color: antiquewhite;
+}
+.blank{
+    color: antiquewhite;
+    background-color: brown;
+    border-style: solid;
+    border-color: tomato;
+    border-radius: 0px;
+    border-width: 3px;
+}
