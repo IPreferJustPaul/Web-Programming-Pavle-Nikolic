@@ -1,0 +1,34 @@
+div{
+    height: 300px;
+    width: 300px;
+    background-color: rgb(233, 66, 136); 
+}
+.anyolthing{
+    height: 200px;
+    width: 200px;
+}
+p.one{
+    border-style: double;
+    border-color: red blue;
+    width: 300px;
+}
+p.two{
+    border-style: double;
+    border-color: red blue green;
+    width: 300px;
+}
+p.three{
+    border-style: double;
+    border-color: red blue green yellow;
+    width: 300px;
+}
+p.four{
+    border-style: double;
+    border-color: red;
+    width: 300px;
+}
+p.five{
+    border-style: double;
+    border-color: black red black black;
+    width: 300px;
+}
