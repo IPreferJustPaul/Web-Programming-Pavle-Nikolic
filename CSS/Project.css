@@ -1,6 +1,12 @@
 .cropped_image {
     width: 18em;  
-    height: 10em; 
+    height: 10em;
     object-fit: cover;
     object-position: center;
+}
+.green_shit {
+    background-color: rgba(19, 53, 29);
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1em;
 }
