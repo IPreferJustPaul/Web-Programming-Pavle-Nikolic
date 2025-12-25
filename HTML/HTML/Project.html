@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vodič kroz vrste kafe</title>
+    <link rel="stylesheet" href="/CSS/Project.css">
+  </head>
+
+  <body>
+    <img class="cropped_image" src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/a83f9e27665e2535ef0f8a2d56c8aac1~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=41fb3ce4&x-expires=1766851200&x-signature=QQIXgQq269MEtXn2oorY4jmUL2o%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=maliva"
+      alt="">
+    <nav class="crop_container">
+      <a href="#vrste">Vrste kafe</a> 
+      <a href="#galerija">Galerija</a> 
+      <a href="#tabela">Cenovnik</a> 
+      <a href="#video">Video</a> 
+      <a href="#forma">Kontakt forma</a> 
+      <a href="#mapa">Lokacija</a> 
+      <a href="#resursi">Resursi</a>
+    </nav>
+
+    <h1 id="top">Vodič kroz vrste kafe</h1>
+    <p>
+      Kafa dolazi u raznim oblicima i ukusima, a svaka vrsta ima svoje
+      jedinstvene karakteristike.
+    </p>
+    <hr />
+    <section class="electrolize-regular  "id="vrste">
+      <h2>Vrste kafe</h2>
+      <ul>
+        <li>
+          <strong>Espresso:</strong> Jaka kafa koja se priprema pod pritiskom.
+        </li>
+        <li><strong>Latte:</strong> Kafa sa mlekom, obično sa penom.</li>
+        <li>
+          <strong>Cappuccino:</strong> Espresso sa jednakim delovima mleka i
+          pene.
+        </li>
+        <li><strong>Americano:</strong> Espresso razblažen vodom.</li>
+      </ul>
+
+      <h3 id="galerija">Galerija kafa</h3>
+      <img
+        src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/a83f9e27665e2535ef0f8a2d56c8aac1~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=41fb3ce4&x-expires=1766851200&x-signature=QQIXgQq269MEtXn2oorY4jmUL2o%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=maliva"
+        alt="Espresso"
+        width="300"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600"
+        alt="Kafa sa zrncima"
+        width="300"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600"
+        alt="Latte art"
+        width="300"
+      />
+
+      <hr />
+    </section>
+
+    <h2>Kako pripremiti</h2>
+    <dl>
+      <dt><strong>Espresso</strong></dt>
+      <dd>
+        Koristite espresso aparat i finu kafu. Priprema traje oko 25-30 sekundi.
+      </dd>
+      <dt><strong>Latte</strong></dt>
+      <dd>Pripremite espresso, zagrejte mleko i dodajte ga sa malo pene.</dd>
+      <dt><strong>Cappuccino</strong></dt>
+      <dd>Espresso + mleko + pena u jednakim delovima.</dd>
+    </dl>
+
+    <hr />
+
+    <h2 id="tabela">Cenovnik</h2>
+    <table border="1" width="100%">
+      <tr>
+        <th>Artikl</th>
+        <th>30 ml</th>
+        <th>60 ml</th>
+        <th>90 ml</th>
+      </tr>
+      <tr>
+        <td>Espresso</td>
+        <td>150 RSD</td>
+        <td>250 RSD</td>
+        <td>350 RSD</td>
+      </tr>
+      <tr>
+        <td>Latte</td>
+        <td>200 RSD</td>
+        <td>300 RSD</td>
+        <td>400 RSD</td>
+      </tr>
+      <tr>
+        <td>Cappuccino</td>
+        <td>200 RSD</td>
+        <td>300 RSD</td>
+        <td>400 RSD</td>
+      </tr>
+      <tr>
+        <td>Americano</td>
+        <td>150 RSD</td>
+        <td>250 RSD</td>
+        <td>350 RSD</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <h2 id="video">Video o pripremi kafe</h2>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/X9tg3J5OiYU"
+      title="Kako napraviti najbolju kafu kod kuće"
+      frameborder="0"
+      allowfullscreen
+    >
+    </iframe>
+
+    <hr />
+
+    <h2>Zvuk aparata za kafu</h2>
+    <audio controls>
+      <source
+        src="https://www.soundjay.com/mechanical/sounds/coffee-maker-1.mp3"
+        type="audio/mpeg"
+      />
+      Tvoj pretraživač ne podržava audio element.
+    </audio>
+
+    <hr />
+
+    <h2 id="forma">Kontakt forma</h2>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Pošaljite nam poruku</legend>
+
+        <label for="ime">Ime:</label><br />
+        <input
+          type="text"
+          id="ime"
+          name="ime"
+          placeholder="Unesite ime"
+        /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="primer@gmail.com"
+        /><br /><br />
+
+        <label for="vrsta">Omiljena vrsta kafe:</label><br />
+        <select id="vrsta" name="vrsta">
+          <option value="espresso">Espresso</option>
+          <option value="latte">Latte</option>
+          <option value="cappuccino">Cappuccino</option>
+          <option value="americano">Americano</option></select
+        ><br /><br />
+
+        <label for="poruka">Poruka:</label><br />
+        <textarea
+          id="poruka"
+          name="poruka"
+          rows="4"
+          cols="40"
+          placeholder="Vaša poruka..."
+        ></textarea
+        ><br /><br />
+
+        <input type="submit" value="Pošalji" />
+        <input type="reset" value="Obriši" />
+      </fieldset>
+    </form>
+
+    <hr />
+
+    <h2 id="mapa">Lokacija kafića</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.136698330229!2d20.456897715539904!3d44.81781377909856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7ab5f1e27cb7%3A0xe86cdd9865a7f60!2sKnez%20Mihailova%2C%20Beograd!5e0!3m2!1ssr!2srs!4v1689583097748!5m2!1ssr!2srs"
+      width="600"
+      height="400"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+    >
+    </iframe>
+
+    <hr />
+
+    <h2 id="resursi">Resursi za učenje</h2>
+    <ul>
+      <li>
+        <a href="https://perfectdailygrind.com" target="_blank"
+          >Perfect Daily Grind</a
+        >
+      </li>
+      <li>
+        <a href="https://www.coffeehouse.com" target="_blank">Coffee House</a>
+      </li>
+      <li>
+        <a href="https://www.coffeereview.com" target="_blank">Coffee Review</a>
+      </li>
+    </ul>
+
+    <hr />
+
+    <footer>
+      <p>&copy; 2025 Kafeterija "Aroma" | Sva prava zadržana</p>
+      <p><a href="#top">⬆ Nazad na vrh</a></p>
+    </footer>
+  </body>
+</html>

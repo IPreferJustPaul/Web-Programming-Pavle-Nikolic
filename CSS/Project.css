@@ -1,0 +1,6 @@
+.cropped_image {
+    width: 18em;  
+    height: 10em; 
+    object-fit: cover;
+    object-position: center;
+}
