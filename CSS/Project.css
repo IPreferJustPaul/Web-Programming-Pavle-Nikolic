@@ -10,3 +10,12 @@
     justify-content: center;
     padding-bottom: 1em;
 }
+.naviguess {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+    gap: 5%;
+}
+table {
+    
+}
