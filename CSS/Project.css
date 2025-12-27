@@ -14,6 +14,7 @@ body {
     display: flex;
     justify-content: center;
     padding-bottom: 1em;
+    margin: 0px;
 }
 .naviguess {
     display: grid;
@@ -28,21 +29,28 @@ table {
     display: grid;
     justify-content: space-around;
     grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto;
-    gap: 1em;
+    grid-template-rows: 1fr 1fr 1fr;
     background-color: rgba(155, 175, 0, 0.418);
     padding: 2em;
     border-radius: 2em
 }
-/*.grid_view_p {
-    width: 5%;
-}*/
+.grid_view p {
+    max-width: 24em;
+    font-size: 1.7em;
+}
+#bottom_text {
+    max-width: 24em;
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-size: 1.7em;
+}
 .double_image{
-    width: 100%;
+    width: 18em;
     border-radius: 1em;
     grid-column-start: 2;
     grid-row-start: 1;
-    grid-row-end: 3;
+    grid-row-end: 4;
 }
 .cursive {
     font-size: larger;
@@ -50,5 +58,14 @@ table {
     font-family: 'Lucida Handwriting', cursive;
 }
 a img {
+    background-color: white;
+    width: 100px;
+    border-radius: 1.3em;
+}
+a img:hover {
     scale: 1.05;
+}
+footer {
+    align-items: center;
+    justify-content: center;
 }
