@@ -1,3 +1,8 @@
+body {
+    font-family: 'Electrolize', sans-serif;
+    color: rgb(26, 73, 40);
+    background-color: rgb(252, 240, 206);
+}
 .cropped_image {
     width: 18em;  
     height: 10em;
@@ -17,5 +22,33 @@
     gap: 5%;
 }
 table {
-    
+   border: 0cm; 
+}
+.grid_view {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 1em;
+    background-color: rgba(155, 175, 0, 0.418);
+    padding: 2em;
+    border-radius: 2em
+}
+/*.grid_view_p {
+    width: 5%;
+}*/
+.double_image{
+    width: 100%;
+    border-radius: 1em;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.cursive {
+    font-size: larger;
+    text-align: center;
+    font-family: 'Lucida Handwriting', cursive;
+}
+a img {
+    scale: 1.05;
 }
