@@ -3,21 +3,214 @@
   <head>
     <meta charset="UTF-8" />
     <title>BKCoffee Shop</title>
-    <link rel="stylesheet" href="../CSS/Project.css">
+    <style>
+        body {
+            font-family: 'Electrolize', sans-serif;
+            color: rgb(26, 73, 40);
+            background-color: rgb(252, 240, 206);
+            border: 1em solid rgba(19, 53, 29);
+            margin:0%;  
+        }
+        .cropped_image {
+            width: 18em;  
+            height: 10em;
+            object-fit: cover;
+            object-position: center;
+        }
+        .green_shit {
+            background-color: rgba(19, 53, 29);
+            display: flex;
+            justify-content: center;
+            padding-bottom: 1em;
+            margin: 0px;
+        }
+        .naviguess {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: auto auto auto;
+            gap: 5%;
+        }
+        table {
+            font-family:'Lucida Handwriting', cursive;
+            justify-self: center;
+            margin: 1em;
+            width: 60%;
+            background-color: #a1c7c2cc;
+            border: 0.5em solid #a1c7c2cc;
+            text-align: center; 
+            border-radius: 0.5em;
+        }
+        .table_section
+        {
+            font-size: larger;
+            background-color: rgba(155, 175, 0, 0.418);
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 1em;
+            padding-top: 0.5ex;
+            border-radius: 2em;
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+        .table_section div {
+            justify-self: center;
+            width: fit-content;
+            padding: 0.5em;
+            border-radius: 2em;
+            background-color: #a1c7c2c9;
+            font-size: larger;
+        }
+        th {background-color: rgba(250,250,250, 0.3); border: 2px solid rgba(250,250,250, 0.3);}
+        td:nth-child(1) {background-color: rgba(250,250,250, 0.3); border: 2px solid rgba(250,250,250, 0.3);}
+        th:nth-child(1) {background-color: rgb(250, 250, 250, 0.5);}
+        .grid_view {
+            display: grid;
+            justify-content: space-around;
+            grid-template-columns: auto auto;
+            grid-template-rows: 1fr 1fr 1fr;
+            background-color: rgba(155, 175, 0, 0.418);
+            padding: 2em;
+            border-radius: 2em;
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+        .grid_view p {
+            border-radius: 2em;
+            padding: 2em;
+            background-color: rgb(252, 240, 206);
+            max-width: 24em;
+            font-size: 1.5em;
+        }
+        #bottom_text {
+            max-width: 24em;
+            grid-row-start: 3;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            font-size: 1.5em;
+        }
+        .double_image{
+            align-self: center;
+            width: 25em;
+            min-width: 10em;
+            border-radius: 1em;
+            grid-column-start: 2;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            margin-left: 2em;
+        }
+        .cursive {
+            font-size: larger;
+            text-align: center;
+            font-family: 'Lucida Handwriting', cursive;
+        }
+        a img {
+            background-color: white;
+            width: 100px;
+            border-radius: 1.3em;
+        }
+        a img:hover {
+            scale: 1.05;
+        }
+        footer {
+            padding-top: 0.5em;
+            color: rgb(252, 240, 206);
+            background-color: rgba(19, 53, 29);
+            align-items: center;
+            justify-content: center;
+        }
+        .maps {
+            background-color: rgba(26, 73, 40, 0.4);
+            margin: 2em;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            border-radius: 2em;
+            margin-top: 1em;
+        }
+        .maps h2{
+            margin: 2em;
+        }
+        .maps iframe{
+            margin: 2em;
+        }
+        iframe {
+            border-radius: 2em;
+        }
+        ul {
+            justify-self: center;
+            text-align: left;
+        }
+        .anothaone {
+            font-size: larger;
+            justify-self: center;
+            background-color: rgba(26, 73, 40, 0.4);
+            text-align: center;
+            justify-content: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            width: calc(100% - 6em);
+            margin-left: 6em;
+            margin-right: 6em;
+            padding: 1em;
+            border-radius: 2em;
+        }
+        .dropflex {
+            justify-self: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            width: calc(100% - 6em);
+            margin-left: 6em;
+            margin-right: 6em;
+            padding: 1em;
+            border-radius: 2em;
+        }
+        .dropdown {
+            margin-left: 1em;
+            margin-right: 1em;
+            position: relative;
+        }
+        .dropbtn {
+            color: rgba(26, 73, 40);
+            background-color: rgb(252, 240, 206);
+            padding: 1em;
+            font-size: 1em;
+            border: none;
+            border-radius: 1em;
+            width: 8em;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            z-index: 2;
+            border-radius: 1em;
+            display: none;
+            position: absolute; 
+            background-color: rgb(252, 240, 206);
+            min-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            color: rgba(26, 73, 40);
+            padding: 0.5em 0.5px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            border-radius: 1em;
+            background-color: rgb(255, 232, 169)
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: rgb(255, 232, 169);
+        } 
+    </style>
   </head>
   
   <body>
-    <!--<nav class="naviguess">
-
-      <a href="#drinks">Vrste kafe</a> 
-      <a href="#hours">Galerija</a> 
-      <a href="#tabela">Cenovnik</a> 
-      <a href="#video">Video</a> 
-      <a href="#forma">Kontakt forma</a> 
-      <a href="#mapa">Lokacija</a> 
-    </nav>-->
-
-
     <div class="green_shit">
       <img class="cropped_image" src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/a83f9e27665e2535ef0f8a2d56c8aac1~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=41fb3ce4&x-expires=1766851200&x-signature=QQIXgQq269MEtXn2oorY4jmUL2o%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=maliva"
         alt="">
