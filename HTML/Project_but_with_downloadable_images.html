@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BKCoffee Shop</title>
+    <style>
+        body {
+            font-family: 'Electrolize', sans-serif;
+            color: rgb(26, 73, 40);
+            background-color: rgb(252, 240, 206);
+            border: 1em solid rgba(19, 53, 29);
+            margin:0%;  
+        }
+        .cropped_image {
+            width: 18em;  
+            height: 10em;
+            object-fit: cover;
+            object-position: center;
+        }
+        .green_shit {
+            background-color: rgba(19, 53, 29);
+            display: flex;
+            justify-content: center;
+            padding-bottom: 1em;
+            margin: 0px;
+        }
+        .naviguess {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: auto auto auto;
+            gap: 5%;
+        }
+        table {
+            font-family:'Lucida Handwriting', cursive;
+            justify-self: center;
+            margin: 1em;
+            width: 60%;
+            background-color: #a1c7c2cc;
+            border: 0.5em solid #a1c7c2cc;
+            text-align: center; 
+            border-radius: 0.5em;
+        }
+        .table_section
+        {
+            font-size: larger;
+            background-color: rgba(155, 175, 0, 0.418);
+            text-align: center;
+            justify-content: center;
+            padding-bottom: 1em;
+            padding-top: 0.5ex;
+            border-radius: 2em;
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+        .table_section div {
+            justify-self: center;
+            width: fit-content;
+            padding: 0.5em;
+            border-radius: 2em;
+            background-color: #a1c7c2c9;
+            font-size: larger;
+        }
+        th {background-color: rgba(250,250,250, 0.3); border: 2px solid rgba(250,250,250, 0.3);}
+        td:nth-child(1) {background-color: rgba(250,250,250, 0.3); border: 2px solid rgba(250,250,250, 0.3);}
+        th:nth-child(1) {background-color: rgb(250, 250, 250, 0.5);}
+        .grid_view {
+            display: grid;
+            justify-content: space-around;
+            grid-template-columns: auto auto;
+            grid-template-rows: 1fr 1fr 1fr;
+            background-color: rgba(155, 175, 0, 0.418);
+            padding: 2em;
+            border-radius: 2em;
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+        .grid_view p {
+            border-radius: 2em;
+            padding: 2em;
+            background-color: rgb(252, 240, 206);
+            max-width: 24em;
+            font-size: 1.5em;
+        }
+        #bottom_text {
+            max-width: 24em;
+            grid-row-start: 3;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            font-size: 1.5em;
+        }
+        .double_image{
+            align-self: center;
+            width: 25em;
+            min-width: 10em;
+            border-radius: 1em;
+            grid-column-start: 2;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            margin-left: 2em;
+        }
+        .cursive {
+            font-size: larger;
+            text-align: center;
+            font-family: 'Lucida Handwriting', cursive;
+        }
+        a img:not(.cropped_image) {
+            background-color: white;
+            width: 100px;
+            border-radius: 1.3em;
+        }
+        a img:hover:not(.cropped_image){
+            scale: 1.05;
+        }
+        footer {
+            padding-top: 0.5em;
+            color: rgb(252, 240, 206);
+            background-color: rgba(19, 53, 29);
+            align-items: center;
+            justify-content: center;
+        }
+        .maps {
+            background-color: rgba(26, 73, 40, 0.4);
+            margin: 2em;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            border-radius: 2em;
+            margin-top: 1em;
+        }
+        .maps h2{
+            margin: 2em;
+        }
+        .maps iframe{
+            margin: 2em;
+        }
+        iframe {
+            border-radius: 2em;
+        }
+        ul {
+            justify-self: center;
+            text-align: left;
+        }
+        .anothaone {
+            font-size: larger;
+            justify-self: center;
+            background-color: rgba(26, 73, 40, 0.4);
+            text-align: center;
+            justify-content: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            width: calc(100% - 6em);
+            margin-left: 6em;
+            margin-right: 6em;
+            padding: 1em;
+            border-radius: 2em;
+        }
+        .dropflex {
+            justify-self: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            width: calc(100% - 6em);
+            margin-left: 6em;
+            margin-right: 6em;
+            padding: 1em;
+            border-radius: 2em;
+        }
+        .dropdown {
+            margin-left: 1em;
+            margin-right: 1em;
+            position: relative;
+        }
+        .dropbtn {
+            color: rgba(26, 73, 40);
+            background-color: rgb(252, 240, 206);
+            padding: 1em;
+            font-size: 1em;
+            border: none;
+            border-radius: 1em;
+            width: 8em;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            z-index: 2;
+            border-radius: 1em;
+            display: none;
+            position: absolute; 
+            background-color: rgb(252, 240, 206);
+            min-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+            color: rgba(26, 73, 40);
+            padding: 0.5em 0.5px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            border-radius: 1em;
+            background-color: rgb(255, 232, 169)
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: rgb(255, 232, 169);
+        } 
+    </style>
+  </head>
+  
+  <body>
+    <div class="green_shit">
+      <a href="https://www.instagram.com/bkcoffeeshop/?hl=en"><img class="cropped_image" src="Images/BKLogo.jpeg"
+        alt=""></a>
+    </div>
+    <div class="cursive">
+      <h1 id="top">Welcome!</h1>
+      <p>...only if you've acknowledged your privilege of renting on <strong>Lenapehoking</strong> land.</p>
+    </div>
+    
+
+    
+    <section class="electrolize-regular  "id="vrste">
+      <div class="grid_view">
+        <p>
+          <strong>Our Mission:</strong>
+          To spread awareness about the spiritual oppresion people face
+          from mainstream bourgeoisie culuture and further our own 
+          journey toward liberation. We achieve this through our
+          weekly marxist book club and our self-expression through coffee, tea and matcha.
+        </p>
+        <img class="double_image"
+          src="Images/tiktok-thumbnail (1).png"
+          alt="Espresso"
+          width="300"
+        />
+        <p>
+          <strong>Our Medium:</strong> Through the choices we provide our
+          customers we grant them a taste of freedom which allows them to realize the
+          depths of the capitalist chains that bind them. Self analysis is a prerequisite
+          for true liberation and so we provide a privilege in addition to every order.
+        </p>
+        <p id="bottom_text">
+          <strong>Our Milk:</strong>
+          Alternative milks are the esential life force that motivates us.
+          They are all produced ethically and sustainably in house. The painstaking labor of
+          aquiring these milks is transformed and transported to our customers
+          who gain an understanding of the value of their own labor and the exploitation that
+          underpins the capitalist system.
+        </p>
+      </div>
+    </section>
+    <div class="anothaone">
+      <h2>Potential orders (inventory not guaranteed):</h2>
+      <div class="dropflex">
+        <div class="dropdown">
+          <button class="dropbtn">Sweetner</button>
+          <div class="dropdown-content">
+            <a href="https://en.wikipedia.org/wiki/Sugar">Burnt Sugar</a>
+            <a href="https://en.wikipedia.org/wiki/Maple_syrup">Maple Syrup</a>
+            <a href="https://en.wikipedia.org/wiki/Lepidium_meyenii">Maca Syrup</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Shots</button>
+          <div class="dropdown-content">
+            <a href="https://en.wikipedia.org/wiki/Espresso">Espresso</a>
+            <a href="https://en.wikipedia.org/wiki/Alprazolam">Xanax</a>
+            <a href="https://en.wikipedia.org/wiki/Cannabidiol">CBD</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Base</button>
+          <div class="dropdown-content">
+            <a href="https://en.wikipedia.org/wiki/Latte">Latte</a>
+            <a href="https://en.wikipedia.org/wiki/Cold_brew_coffee">Cold brew</a>
+            <a href="https://en.wikipedia.org/wiki/Matcha">Matcha</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Alt Milk</button>
+          <div class="dropdown-content">
+            <a href="https://drinkmilkish.com/?srsltid=AfmBOoqjWXpydhninjucTkYtTWlz10EfDqqVyDw2Svb1-zxkq7C74Vna">Watermelon Seed</a>
+            <a href="https://en.wikipedia.org/wiki/Soy_milk">Soy</a>
+            <a href="https://en.wikipedia.org/wiki/Rice_milk">Rice</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Addons</button>
+          <div class="dropdown-content">
+            <a href="https://en.wikipedia.org/wiki/Opuntia">Cactus</a>
+            <a href="https://en.wikipedia.org/wiki/Collagen">Collagen Peptides</a>
+            <a href="https://en.wikipedia.org/wiki/Turmeric">Turmeric</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="table_section">
+    <h2 id="tabela">Our Timetable</h2>
+    <table>
+      <tr>
+        <th>Day</th>
+        <th>Opening</th>
+        <th>Closing</th>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td>6:15am</td>
+        <td>12:59pm</td>
+      </tr>
+      <tr>
+        <td>Tuesday</td>
+        <td colspan="2">Closed.</td>
+      </tr>
+      <tr>
+        <td>Wedn                          esday</td>
+        <td>10:37am</td>
+        <td>3:26pm</td>
+      </tr>
+      <tr>
+        <td>Thursday</td>
+        <td>10:22am</td>
+        <td>7:14pm</td>
+      </tr>
+      <tr>
+        <td>Friday</td>
+        <td colspan="2">Closed.</td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td>11:18am</td>
+        <td>3:45pm</td>
+      </tr>
+      <tr>
+        <td>Sunday</td>
+        <td>4:15am</td>
+        <td>2:15pm</td>
+      </tr>
+    </table>
+    <div>
+    <p>
+      <strong>~*Open 24 hours on a full moon*~</strong><br><br>
+      We can and will close if:
+      <ul>
+        <li>Asked by a person of Lenape descent</li>
+        <li>We serve our 10th customer for the day</li>
+        <li>Mercury is in retrograde</li>
+      </ul>
+    </p>
+    </div>
+    </div>
+    <div class="maps">
+      <h2 ><strong>Don't</strong> find us here:</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7619.904519583478!2d-73.94499559215!3d40.71887438887086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259651b3f0bd5%3A0x6e681b8836b92aad!2sLarry&#39;s%20Ca%20Phe!5e0!3m2!1sen!2srs!4v1766828029161!5m2!1sen!2srs" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <footer>
+      <p><strong>&copy; CopyrightIsTheft Inc.</strong></p>
+      <a href="https://www.instagram.com/bkcoffeeshop/?hl=en"><img src="Images/Instagram_icon.png"></a>
+      <a href="https://youtube.com/playlist?list=PLlA5JOqLo7rbZU3M2PTNXFn0Z6-joLQEB&si=XF2Lq8tqzKok_byr"><img src="Images/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.webp"></a>
+      <a href="#top"><img src="Images/up-arrow-text-stencil-wood_x700.jpg"></a>
+    </footer>
+  </body>
+</html>
