@@ -1,8 +1,17 @@
 const input = document.getElementById("unos");
-const dugme = document.getElementById("dugme");
+const searchBtn = document.getElementById("search");
+const filterBtn = document.getElementById("filter");
+const sortBtn = document.getElementById("sort");
 const rezultat = document.getElementById("rezultat");
-var name_list = [];
-var hidden;
+const add50Btn = document.getElementById("add50");
+var card_list = [];
+var big_list = [];
+
+searchBtn.onclick = searchCard;
+filterBtn.onclick = filterCards;
+sortBtn.onclick = sortCards;
+add50Btn.onclick = add50Cards;
+
 document.addEventListener("DOMContentLoaded", function () {
   fetch("https://spire-codex.com/api/cards")
     .then(proveriOdgovor)
@@ -11,46 +20,93 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(prikaziGresku);
 });
 
-dugme.onclick = guessCard;
+function searchCard() {
+  const search = input.value.toLowerCase().trim().replace(" ", "_");
 
-function makeList(data) {
-  var hiddenname;
-  data = JSON.stringify(data);
-  data = JSON.parse(data);
-  for (let i = 0; i < data.length; i++) {
-    name_list.push(data[i].id);
-  }
-  hiddenname = name_list[Math.floor(Math.random() * name_list.length)];
-  hiddenname = hiddenname.toLowerCase().trim();
-  rezultat.innerHTML = `<p>${hiddenname}</p>`;
-  fetch("https://spire-codex.com/api/cards/" + hiddenname)
-    .then(proveriOdgovor)
-    .then(pretvoriUJSON)
-    .then(function (data) {
-      hidden = data;
-    })
-    .then(prikaziCard)
-  /*if(hidden.keywords == null){
-    hidden.keywords = "None";
-  }*/
-
-}
-
-function guessCard() {
-  const guess = input.value.toLowerCase().trim().replace(" ", "_");
-
-  if (guess === "") {
+  if (search === "") {
     rezultat.innerHTML = `<p>Enter a Card</p>` + rezultat.innerHTML;
     return;
   }
   rezultat.innerHTML = rezultat.innerHTML.replace(`Enter a Card`, '');
   rezultat.innerHTML = rezultat.innerHTML.replace(`Enter an existing card.`, '');
 
-  fetch("https://spire-codex.com/api/cards/" + guess)
+  fetch("https://spire-codex.com/api/cards/" + search)
     .then(proveriOdgovor)
     .then(pretvoriUJSON)
-    .then(prikaziCard)
+    .then(addCard)
+    .then(prikaziSve)
     .catch(prikaziGresku);
+}
+
+function prikaziSve() {
+  rezultat.innerHTML = "";
+  for (let i = 0; i < card_list.length; i++) {
+    prikaziCard(card_list[i]);
+  }
+}
+
+function addCard(card) {
+  for (let i = 0; i < card_list.length; i++) {
+    if (card_list[i].id === card.id) {
+      rezultat.innerHTML = `<p>Card already exists</p>` + rezultat.innerHTML;
+      return;
+    }
+  }
+  rezultat.innerHTML = rezultat.innerHTML.replaceAll(`Card already exists`, '');
+  card_list.push(card);
+}
+
+function filterCards() {
+  rezultat.innerHTML = "";
+  for (let i = 0; i < card_list.length; i++) {
+    const card = card_list[i];
+    if (card.color === input.value.toLowerCase().trim().replace(" ", "_")) {
+      prikaziCard(card);
+    }
+  }
+
+}
+
+function sortCards() {
+  switch (input.value.toLowerCase().trim()) {
+    case "color":
+      card_list.sort((a, b) => a.color.localeCompare(b.color));
+      break;
+    case "rarity":
+      card_list.sort((a, b) => a.rarity.localeCompare(b.rarity));
+      break;
+    case "cost":
+      card_list.sort((a, b) => a.cost - b.cost);
+      break;
+    case "name":
+      card_list.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "type":
+      card_list.sort((a, b) => a.type.localeCompare(b.type));
+      break;
+    default:
+      rezultat.innerHTML = `<p>Enter a valid sort category</p>` + rezultat.innerHTML;
+      return;
+  }
+  prikaziSve();
+}
+function rarityCompare(a, b) {
+  const rarities = ["basic", "common", "uncommon", "rare", "ancient", "event", "quest", "curse", "status", "attack", "skill", "power", "relic"];
+  return rarities.indexOf(a) - rarities.indexOf(b);
+}
+function add50Cards() {
+  rezultat.innerHTML = "";
+  for (let i = 0; i < 50; i++) {
+    const card = big_list[Math.floor(Math.random() * big_list.length)];
+    addCard(card);
+  }
+  prikaziSve();
+}
+
+function makeList(data) {
+  data = JSON.stringify(data);
+  data = JSON.parse(data);
+  big_list = data;
 }
 
 function proveriOdgovor(input) {
@@ -71,30 +127,16 @@ function pretvoriUNiz(input) {
 }
 
 function prikaziCard(guess) {
-  if (hidden.keywords == null) {
-    hidden.keywords = ["None"];
-  }
-  if (guess.keywords == null) {
-    guess.keywords = ["None"];
-  }
-  var overlap = guess.keywords.filter(value => hidden.keywords.includes(value));
-  var keyword_rightness;
-  if (overlap.length == hidden.keywords.length && overlap.length == guess.keywords.length) {
-    keyword_rightness = "true";
-  } else if (overlap.length > 0) {
-    keyword_rightness = "kindatrue";
-  } else {
-    keyword_rightness = "false";
-  }
   const html = `
     <div class="kartica">
       <img src="https://spire-codex.com${guess.image_url}">
-      <p class ="is${guess.type == hidden.type}">${guess.type} ${hidden.type}</p>
-      <p class ="is${guess.color == hidden.color}">${guess.color} ${hidden.color}</p>
-      <p class ="is${guess.rarity == hidden.rarity}">${guess.rarity} ${hidden.rarity}</p>
-      <p class ="is${guess.cost == hidden.cost}">${guess.cost} ${hidden.cost}</p>
-      <p class ="is${keyword_rightness}">${guess.keywords} ${hidden.keywords}</p>
-      <p class ="is${guess.target == hidden.target}">${guess.target} ${hidden.target}</p>
+      <p><b>${guess.name}</b></p>
+      <p><b>Type:</b> ${guess.type}</p>
+      <p><b>Color:</b> ${guess.color}</p>
+      <p><b>Rarity:</b> ${guess.rarity}</p>
+      <p><b>Cost:</b> ${guess.cost}</p>
+      <p><b>Keywords:</b> ${guess.keywords}</p>
+      <p><b>Target:</b> ${guess.target}</p>
     </div>
   `;
   rezultat.innerHTML = html + rezultat.innerHTML;

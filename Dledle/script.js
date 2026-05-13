@@ -89,12 +89,12 @@ function prikaziCard(guess) {
   const html = `
     <div class="kartica">
       <img src="https://spire-codex.com${guess.image_url}">
-      <p class ="is${guess.type == hidden.type}">${guess.type} ${hidden.type}</p>
-      <p class ="is${guess.color == hidden.color}">${guess.color} ${hidden.color}</p>
-      <p class ="is${guess.rarity == hidden.rarity}">${guess.rarity} ${hidden.rarity}</p>
-      <p class ="is${guess.cost == hidden.cost}">${guess.cost} ${hidden.cost}</p>
-      <p class ="is${keyword_rightness}">${guess.keywords} ${hidden.keywords}</p>
-      <p class ="is${guess.target == hidden.target}">${guess.target} ${hidden.target}</p>
+      <p class ="is${guess.type == hidden.type}">${guess.type}</p>
+      <p class ="is${guess.color == hidden.color}">${guess.color}</p>
+      <p class ="is${guess.rarity == hidden.rarity}">${guess.rarity}</p>
+      <p class ="is${guess.cost == hidden.cost}">${guess.cost}</p>
+      <p class ="is${keyword_rightness}">${guess.keywords}</p>
+      <p class ="is${guess.target == hidden.target}">${guess.target}</p>
     </div>
   `;
   rezultat.innerHTML = html + rezultat.innerHTML;
